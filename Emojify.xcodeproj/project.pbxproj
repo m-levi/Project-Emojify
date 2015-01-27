@@ -31,8 +31,11 @@
 		96389E261A72D415004352C0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96389E251A72D415004352C0 /* libz.dylib */; };
 		96389E281A72D423004352C0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96389E271A72D423004352C0 /* libsqlite3.dylib */; };
 		964BF9361A749BB000AEEBCD /* EditFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964BF9351A749BB000AEEBCD /* EditFriendsTableViewController.swift */; };
+		FE00B1681A75D5AA0062BA05 /* CameraTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00B1671A75D5AA0062BA05 /* CameraTableViewController.swift */; };
 		FE1A8C3A1A72DDEA002CAA89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1A8C391A72DDEA002CAA89 /* LoginViewController.swift */; };
 		FE1A8C3C1A72DE3B002CAA89 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1A8C3B1A72DE3B002CAA89 /* SignUpViewController.swift */; };
+		FEAE2B821A784286009407A8 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAE2B811A784286009407A8 /* ImageViewController.swift */; };
+		FEC560B11A76B5E0009F9B9B /* FrendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC560B01A76B5E0009F9B9B /* FrendsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +57,7 @@
 		96389DEE1A72C692004352C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		96389DF11A72C692004352C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		96389DF71A72C692004352C0 /* EmojifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmojifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		96389DFC1A72C692004352C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96389DFC1A72C692004352C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = EmojifyTests/Info.plist; sourceTree = SOURCE_ROOT; };
 		96389DFD1A72C692004352C0 /* EmojifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojifyTests.swift; sourceTree = "<group>"; };
 		96389E071A72CE71004352C0 /* InboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewController.swift; sourceTree = "<group>"; };
 		96389E091A72D383004352C0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -75,8 +78,11 @@
 		96389E271A72D423004352C0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		96389E2A1A72D4E0004352C0 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		964BF9351A749BB000AEEBCD /* EditFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFriendsTableViewController.swift; sourceTree = "<group>"; };
+		FE00B1671A75D5AA0062BA05 /* CameraTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraTableViewController.swift; sourceTree = "<group>"; };
 		FE1A8C391A72DDEA002CAA89 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FE1A8C3B1A72DE3B002CAA89 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		FEAE2B811A784286009407A8 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		FEC560B01A76B5E0009F9B9B /* FrendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrendsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,9 +146,12 @@
 				96389DE71A72C692004352C0 /* AppDelegate.swift */,
 				96389DE91A72C692004352C0 /* ViewController.swift */,
 				96389DEB1A72C692004352C0 /* Main.storyboard */,
+				FEC560B01A76B5E0009F9B9B /* FrendsTableViewController.swift */,
 				964BF9351A749BB000AEEBCD /* EditFriendsTableViewController.swift */,
+				FE00B1671A75D5AA0062BA05 /* CameraTableViewController.swift */,
 				FE1A8C391A72DDEA002CAA89 /* LoginViewController.swift */,
 				FE1A8C3B1A72DE3B002CAA89 /* SignUpViewController.swift */,
+				FEAE2B811A784286009407A8 /* ImageViewController.swift */,
 				96389E071A72CE71004352C0 /* InboxTableViewController.swift */,
 				96389E2A1A72D4E0004352C0 /* BridgingHeader.h */,
 				96389DEE1A72C692004352C0 /* Images.xcassets */,
@@ -298,8 +307,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE00B1681A75D5AA0062BA05 /* CameraTableViewController.swift in Sources */,
+				FEAE2B821A784286009407A8 /* ImageViewController.swift in Sources */,
 				FE1A8C3A1A72DDEA002CAA89 /* LoginViewController.swift in Sources */,
 				96389DEA1A72C692004352C0 /* ViewController.swift in Sources */,
+				FEC560B11A76B5E0009F9B9B /* FrendsTableViewController.swift in Sources */,
 				96389E081A72CE71004352C0 /* InboxTableViewController.swift in Sources */,
 				96389DE81A72C692004352C0 /* AppDelegate.swift in Sources */,
 				FE1A8C3C1A72DE3B002CAA89 /* SignUpViewController.swift in Sources */,
@@ -433,7 +445,7 @@
 				INFOPLIST_FILE = Emojify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/mordechailevi/Downloads/Emojify/Emojify/BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/mordechailevi/Desktop/Emojify/Emojify/BridgingHeader.h;
 			};
 			name = Debug;
 		};
@@ -448,7 +460,7 @@
 				INFOPLIST_FILE = Emojify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/mordechailevi/Downloads/Emojify/Emojify/BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/mordechailevi/Desktop/Emojify/Emojify/BridgingHeader.h;
 			};
 			name = Release;
 		};

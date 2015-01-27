@@ -11,9 +11,7 @@ import UIKit
 class EditFriendsTableViewController: UITableViewController {
     
     var friends : NSMutableArray!
-    
     var allUsers : NSArray!
-    
     var currentUser : PFUser!
     
     override func viewDidLoad() {
@@ -23,12 +21,6 @@ class EditFriendsTableViewController: UITableViewController {
         friends = NSMutableArray()
         currentUser = PFUser.currentUser()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    
         var query : PFQuery = PFUser.query()
         query.orderByAscending("username")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
@@ -37,9 +29,7 @@ class EditFriendsTableViewController: UITableViewController {
             }
             else{
                 self.allUsers = objects
-//                println(self.allUsers.count)
                 self.tableView.reloadData()
-//                println(self.allUsers)
             }
         }
         
@@ -76,49 +66,24 @@ class EditFriendsTableViewController: UITableViewController {
         var user : PFUser = allUsers.objectAtIndex(indexPath.row) as PFUser
 //        cell.textLabel.text = user.username
         cell.textLabel?.text = user.username
-
         
-    
-        // Configure the cell...
-
+        if isFriend(user) {
+            
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            
+            println("yo")
+            
+        }else{
+            
+            println("yoYo")
+            
+            cell.accessoryType = UITableViewCellAccessoryType.None
+            
+        }
+        
         return cell
     }
 
-//    - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//    {
-//    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-//    
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    
-//    PFRelation *friendsRelation = [self.currentUser relationforKey:@"friendsRelation"];
-//    PFUser *user = [self.allUsers objectAtIndex:indexPath.row];
-//    
-//    if ([self isFriend:user]) {
-//    cell.accessoryType = UITableViewCellAccessoryNone;
-//    
-//    for(PFUser *friend in self.friends) {
-//    if ([friend.objectId isEqualToString:user.objectId]) {
-//    [self.friends removeObject:friend];
-//    break;
-//    }
-//    }
-//    
-//    [friendsRelation removeObject:user];
-//    }
-//    else {
-//    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-//    [self.friends addObject:user];
-//    [friendsRelation addObject:user];
-//    }
-//    
-//    [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//    if (error) {
-//    NSLog(@"Error: %@ %@", error, [error userInfo]);
-//    }
-//    }];
-//    }
-    
-    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
@@ -126,19 +91,18 @@ class EditFriendsTableViewController: UITableViewController {
         let cell : UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         var friendsRelation = currentUser.relationForKey("friendsRelation")
         var user : PFUser = allUsers.objectAtIndex(indexPath.row) as PFUser
-        println(user)
-        if isFriend(user) {
+        isFriend(user)
+        if isFriend(user) == true{
+            
             cell.accessoryType = UITableViewCellAccessoryType.None
 
+            println("isFriend")
+            
             for friend in self.friends {
-             
-                println("ID: \(user.objectId)")
-                println("F: \(friend)")
                 
                 if friend.objectId == user.objectId {
                     
-                    println("ID: \(user.objectId)")
-                    println("F: \(friend)")
+
                     friends.removeObject(friend)
                     break
                 }
@@ -148,11 +112,9 @@ class EditFriendsTableViewController: UITableViewController {
             
         }else{
             
-            println(user)
-            
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             friends.addObject(user)
-            println(friends)
+            //println(friends)
             friendsRelation.addObject(user)
             
         }
@@ -181,11 +143,14 @@ class EditFriendsTableViewController: UITableViewController {
     
     func isFriend (user : PFUser) -> Bool {
         
-        var friend : PFUser!
+        //var friend : PFUser!
         
         for friend in self.friends {
-            
+    
             if friend.objectId == user.objectId {
+                
+                println("true")
+                
                 return true
             }
         }
@@ -193,49 +158,5 @@ class EditFriendsTableViewController: UITableViewController {
         return false
     }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
