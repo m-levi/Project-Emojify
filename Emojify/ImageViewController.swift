@@ -10,17 +10,22 @@ import UIKit
 
 class ImageViewController: UIViewController {
 
+
     @IBOutlet weak var imageView: UIImageView!
     var message : PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var imageFile : PFFile = message.objectForKey("file") as PFFile
-        var imageFileURL = NSURL(string: imageFile.url)
+        //imageView = UIImageView()
+        
+        println(message)
+        
+        var imageFile = message.objectForKey("file") as PFFile?
+        var imageFileURL = NSURL(string: imageFile!.url!)
         var imageData = NSData(contentsOfURL: imageFileURL!)
         
-        imageView.image = UIImage(data: imageData!)
+        imageView.image = UIImage(data: NSData(contentsOfURL: imageFileURL!)!)
         
         navigationItem.title = message.objectForKey("senderUsername") as String!
         

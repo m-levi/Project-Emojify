@@ -11,10 +11,13 @@ import UIKit
 class InboxTableViewController: UITableViewController {
 
     var messages = []
-    var selectedMessage : PFObject!
+    var selectedMessagee : PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        println(messages)
+        
         
         var currentUser = PFUser.currentUser()
         
@@ -33,7 +36,7 @@ class InboxTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        var query = PFQuery(className: "messages")
+        var query = PFQuery(className: "Messages")
         query.whereKey("recipientIDs", equalTo: PFUser.currentUser().objectId)
         query.orderByDescending("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
@@ -83,9 +86,11 @@ class InboxTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        selectedMessage = messages.objectAtIndex(indexPath.row) as PFObject
+        //println(messages.objectAtIndex(indexPath.row) as PFObject)
         
-        performSegueWithIdentifier("showImage", sender: self)
+        selectedMessagee = messages.objectAtIndex(indexPath.row) as PFObject
+        println(selectedMessagee)
+        performSegueWithIdentifier("yo", sender: self)
         
         
     }
@@ -108,16 +113,18 @@ class InboxTableViewController: UITableViewController {
             bottomBar.hidesBottomBarWhenPushed = true
             bottomBar.navigationItem.hidesBackButton = true
             
-        }else if segue.identifier == "showImage" {
+        }else if segue.identifier == "yo" {
             
-            let bottomBar = segue.destinationViewController as LoginViewController
-            bottomBar.hidesBottomBarWhenPushed = true
+//            let bottomBar = segue.destinationViewController as LoginViewController
+//            bottomBar.hidesBottomBarWhenPushed = true
 
             var imageVC : ImageViewController = segue.destinationViewController as ImageViewController
-            imageVC.message = selectedMessage
+            
+            println(selectedMessagee)
+            imageVC.message = selectedMessagee
             
         }
-        
+    
         
     }
     

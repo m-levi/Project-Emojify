@@ -34,12 +34,12 @@
                     </navigationItem>
                     <connections>
                         <segue destination="iVq-5f-mKf" kind="show" identifier="showLogin" id="z3d-so-12E"/>
-                        <segue destination="hEv-Lp-EkC" kind="show" identifier="showImage" id="PaK-6I-BtK"/>
+                        <segue destination="hEv-Lp-EkC" kind="show" identifier="yo" id="Jah-x8-9fj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATU-qq-uy2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="202.5" y="-412"/>
+            <point key="canvasLocation" x="225" y="-372"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="2Q4-Nj-2dP">
@@ -266,39 +266,25 @@
                         <viewControllerLayoutGuide type="bottom" id="36V-Jb-Xvx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ev6-X2-dKq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jSx-Au-H9K">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="jSx-Au-H9K" firstAttribute="leading" secondItem="ev6-X2-dKq" secondAttribute="leading" id="4ox-hu-k5a"/>
-                            <constraint firstItem="jSx-Au-H9K" firstAttribute="top" secondItem="ev6-X2-dKq" secondAttribute="top" id="fP5-B0-tEp"/>
-                            <constraint firstAttribute="trailing" secondItem="jSx-Au-H9K" secondAttribute="trailing" id="pQF-nA-4cl"/>
-                            <constraint firstAttribute="bottom" secondItem="jSx-Au-H9K" secondAttribute="bottom" id="sZg-Ru-wgP"/>
-                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="jSx-Au-H9K"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="4ox-hu-k5a"/>
-                                <exclude reference="fP5-B0-tEp"/>
-                                <exclude reference="pQF-nA-4cl"/>
-                                <exclude reference="sZg-Ru-wgP"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="jSx-Au-H9K"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="4ox-hu-k5a"/>
-                                <include reference="fP5-B0-tEp"/>
-                                <include reference="pQF-nA-4cl"/>
-                                <include reference="sZg-Ru-wgP"/>
                             </mask>
                         </variation>
                     </view>
